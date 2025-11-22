@@ -56,12 +56,6 @@ done <<< $FILES_TO_DELETE
 echo -e "Files Found $Y $FILE_COUNT $N"
 
 # Helper Functions
-
-zip_file_name() {
-    TIMESTAMP=$(date +%F-%H-%M)
-    ZIP_FILE_NAME="$DESTINATION_DIR/apps-logs-$TIMESTAMP.zip"
-}
-
 delete_files() {
     while IFS= read -r filepath
     do
@@ -82,11 +76,11 @@ check_archive_status() {
 
 # Zipping the file and deleting the source files
 if [ ! -z "${FILES_TO_DELETE}" ]; then
-    ZIP_FILE_NAME=$(zip_file_name)
-    echo $ZIP_FILE_NAME
-    find $FILES_TO_DELETE | zip -@ -j $ZIP_FILE_NAME
-    check_archive_status
-    delete_files
+    TIMESTAMP=$(date +%F-%H-%M)
+    ZIP_FILE_NAME="$DESTINATION_DIR/apps-logs-$TIMESTAMP.zip"
+    find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | zip -@ -j $ZIP_FILE_NAME
+    check_archive_status $ZIP_FILE_NAME
+    #delete_files
 else
     echo -e "No Files to Archive or Backup ... $Y SKIPPING $N"
 fi
