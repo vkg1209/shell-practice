@@ -70,14 +70,22 @@ delete_files() {
     done <<< $FILES_TO_DELETE
 }
 
+check_archive_status() {
+    if [ -f $1 ]; then
+        echo -e "Archieval ... $G SUCCESS $N"
+    else
+        echo -e "Archieval ... $R FAILURE $N"
+        exit 1
+}
 
+
+# Zipping the file and deleting the source files
 if [ ! -z "${FILES_TO_DELETE}" ]; then
-    zip_file_name
-    find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | zip -@ -j $ZIP_FILE_NAME
+    ZIP_FILE_NAME=$(zip_file_name)
+    find $FILES_TO_DELETE | zip -@ -j $ZIP_FILE_NAME
+    check_archive_status
     delete_files
 else
     echo -e "No Files to Archive or Backup ... $Y SKIPPING $N"
 fi
 
-#still needs to move to the diretry
-#check if the archive i success or not
