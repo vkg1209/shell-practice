@@ -21,4 +21,5 @@ do
 
 done <<< $DISK_UTIL
 
+echo "dsfsdf"
 echo $MESSAGE_BODY
