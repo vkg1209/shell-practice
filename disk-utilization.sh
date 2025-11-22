@@ -18,8 +18,7 @@ do
     if [ $USAGE -gt "$DISK_THRESHOLD" ]; then
         MESSAGE_BODY+="High Disk Usage: $USAGE%"
     fi
-
+    echo $MESSAGE_BODY
 done <<< $DISK_UTIL
 
-echo "dsfsdf"
 echo $MESSAGE_BODY
