@@ -9,6 +9,8 @@ SOURCE_DIR=$1
 DESTINATION_DIR=$2
 DAYS=${3:-14}
 
+FILE_COUNT=0
+
 #Script Usage Syntax
 USAGE(){
     echo -e "$R USAGE:: $N sudo sh 24-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS>[optional, default 14 days]"
