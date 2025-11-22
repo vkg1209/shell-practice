@@ -76,6 +76,7 @@ check_archive_status() {
     else
         echo -e "Archieval ... $R FAILURE $N"
         exit 1
+    fi
 }
 
 
