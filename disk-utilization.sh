@@ -12,10 +12,10 @@ MESSAGE_BODY=""
 
 while IFS= read -r line
 do
-    USAGE=$( df -hT | grep -v Filesystem | awk '{print $6}' | cut -d "%" -f1)
+    USAGE=$( echo $DISK_UTIL | awk '{print $6}' | cut -d "%" -f1)
     PARTITION=$(echo $DISK_UTIL | awk '{print $2}')
 
-    if [ $USAGE -gt $DISK_THRESHOLD ]; then
+    if [ $USAGE -gt "$DISK_THRESHOLD" ]; then
         MESSAGE_BODY+="High Disk Usage: $USAGE% \n"
     fi
 
