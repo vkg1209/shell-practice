@@ -20,4 +20,4 @@ do
     fi
 done <<< $DISK_UTIL
 echo $MESSAGE_BODY
-sh mail.sh "vinayakumargantala@gmail.com" "High Disk Utilization" "${MESSAGE_BODY}"
+sh mail.sh "vinayakumargantala@gmail.com" "High Disk Utilization" "${MESSAGE_BODY}" $IP_ADDRESS "High Disk Utilization "DevOps""
