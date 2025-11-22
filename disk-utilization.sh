@@ -19,5 +19,5 @@ do
         MESSAGE_BODY+="High Disk usage on $PARTITION: $USAGE% <bt>" 
     fi
 done <<< $DISK_UTIL
-
-sh mail.sh "vinayakumargantala@gmail.com" "High Disk Utilization" ${MESSAGE_BODY}
+echo $MESSAGE_BODY
+sh mail.sh "vinayakumargantala@gmail.com" "High Disk Utilization" "${MESSAGE_BODY}"
