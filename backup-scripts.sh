@@ -72,7 +72,7 @@ delete_files() {
 
 
 if [ ! -z "${FILES_TO_DELETE}" ]; then
-    $FILES_TO_DELETE | zip -@ -j $ZIP_FILE_NAME
+    find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | zip -@ -j $ZIP_FILE_NAME
     delete_files
 else
     echo -e "No Files to Archive or Backup ... $Y SKIPPING $N"
