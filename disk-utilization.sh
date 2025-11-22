@@ -6,7 +6,7 @@ Y="\e[33m"
 N="\e[0m"
 
 DISK_UTIL=$(df -hT | grep -v Filesystem)
-DISK_THRESHOLD=2
+DISK_THRESHOLD=1
 IP_ADDRESS=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
 MESSAGE_BODY=""
 
