@@ -16,7 +16,7 @@ do
     PARTITION=$(echo $line | awk '{print $2}')
 
     if [ $USAGE -gt "$DISK_THRESHOLD" ]; then
-        MESSAGE_BODY+="High Disk usage on $PARTITION: $USAGE% \n " 
+        MESSAGE_BODY+="High Disk usage on $PARTITION: $USAGE%\n " 
     fi
 done <<< $DISK_UTIL
 
