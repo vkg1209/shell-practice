@@ -17,6 +17,7 @@ do
 
     if [ $USAGE -gt $DISK_THRESHOLD ]; then
         MESSAGE_BODY+="High Disk Usage: $USAGE% \n"
+    fi
 
 done <<< $DISK_UTIL
 
