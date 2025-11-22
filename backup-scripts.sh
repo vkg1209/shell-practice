@@ -37,7 +37,7 @@ else
 fi
 
 # Checking if the Days are not less than 0 (delete today files if it is 0) exit if days < 0
-if [ $DAYS lt 0 ]; then
+if [ $DAYS -lt 0 ]; then
     echo -e "$R We cant delete $Y $DAYS $R days old logs ... $Y Days should be greater than or equal to 0 $N"
     exit 1
 fi
@@ -70,7 +70,7 @@ delete_files() {
 
 
 if [ ! -z "${FILES_TO_DELETE}" ]; then
-    FILES_TO_DELETE | zip -@ -j $ZIP_FILE_NAME
+    $FILES_TO_DELETE | zip -@ -j $ZIP_FILE_NAME
     delete_files
 else
     echo -e "No Files to Archive or Backup ... $Y SKIPPING $N"
