@@ -72,6 +72,7 @@ delete_files() {
 
 
 if [ ! -z "${FILES_TO_DELETE}" ]; then
+    zip_file_name
     find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | zip -@ -j $ZIP_FILE_NAME
     delete_files
 else
