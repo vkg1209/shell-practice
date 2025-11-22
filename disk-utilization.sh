@@ -14,7 +14,7 @@ while IFS= read -r line
 do
     USAGE=$( echo $DISK_UTIL | awk '{print $6}' | cut -d "%" -f1)
     PARTITION=$(echo $DISK_UTIL | awk '{print $2}')
-
+    echo $USAGE
     if [ $USAGE -gt "$DISK_THRESHOLD" ]; then
         MESSAGE_BODY+="High Disk usage on $PARTITION: $USAGE % <br>" # escaping
     fi
