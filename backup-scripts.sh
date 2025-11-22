@@ -83,6 +83,7 @@ check_archive_status() {
 # Zipping the file and deleting the source files
 if [ ! -z "${FILES_TO_DELETE}" ]; then
     ZIP_FILE_NAME=$(zip_file_name)
+    echo $ZIP_FILE_NAME
     find $FILES_TO_DELETE | zip -@ -j $ZIP_FILE_NAME
     check_archive_status
     delete_files
