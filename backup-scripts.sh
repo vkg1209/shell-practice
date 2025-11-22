@@ -80,7 +80,7 @@ if [ ! -z "${FILES_TO_DELETE}" ]; then
     ZIP_FILE_NAME="$DESTINATION_DIR/apps-logs-$TIMESTAMP.zip"
     find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | zip -@ -j $ZIP_FILE_NAME
     check_archive_status $ZIP_FILE_NAME
-    #delete_files
+    delete_files
 else
     echo -e "No Files to Archive or Backup ... $Y SKIPPING $N"
 fi
